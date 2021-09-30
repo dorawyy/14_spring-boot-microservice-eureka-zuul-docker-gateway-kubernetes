@@ -4,7 +4,7 @@ metadata:
   name: gateway
 spec:
   selector:
-    app: k8n-service-gateway
+    app: k8s-service-gateway
   ports:
     - protocol: TCP
       port: 8762

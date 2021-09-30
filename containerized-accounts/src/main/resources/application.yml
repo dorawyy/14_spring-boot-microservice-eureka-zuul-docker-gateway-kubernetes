@@ -13,10 +13,10 @@ spring:
       org.springframework: WARN
       org.hibernate: WARN
   logstash:
-    server: logstash
-    port: 5000
+    server: ${${LOGSTASH_SERVICE}.service.host}
+    port: ${${LOGSTASH_SERVICE}.service.port}
   zipkin:
-    base-url: ${ZIPKIN_URL:http://zipkin:9411}/
+    base-url: http://${${ZIPKIN_SERVICE}.service.host}:${${ZIPKIN_SERVICE}.service.port}
 
 management:
   endpoints:
@@ -37,7 +37,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: ${DISCOVERY_URL:http://discovery:8761}/eureka/
+      defaultZone: http://${${DISCOVERY_SERVICE}.service.host}:${${DISCOVERY_SERVICE}.service.port}/eureka/
 
 ribbon:
   eureka:
