@@ -20,7 +20,7 @@ public class OrderResource
 	@GetMapping("/{id}")
 	public ResponseEntity<Order> get(@PathVariable("id") Integer id)
 	{
-		final var order = repository.findById(id).get();
+		final var order = repository.findById(id).get(); // call 
 		log.info("Order {} detail fetched {}", id, order);
 		return ResponseEntity.ok(order);
 	}
@@ -28,7 +28,7 @@ public class OrderResource
 	@GetMapping()
 	public ResponseEntity<Collection<Order>> getAll()
 	{
-		final var orders = repository.findAll().get();
+		final var orders = repository.findAll().get(); // call
 		log.info("Executing fetching all orders {}", orders);
 		return ResponseEntity.ok(orders);
 	}

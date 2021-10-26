@@ -24,7 +24,7 @@ public class AccountResource
 	@GetMapping("/{id}")
 	public ResponseEntity<Account> get(@PathVariable("id") Integer id)
 	{
-		final var account = repository.findById(id).get();
+		final var account = repository.findById(id).get(); // call
 		log.info("Account {} detail fetched {}", id, account);
 		return ResponseEntity.ok(account);
 	}
@@ -32,7 +32,7 @@ public class AccountResource
 	@GetMapping()
 	public ResponseEntity<Collection<Account>> getAll()
 	{
-		final var accounts = (repository.findAll().get());
+		final var accounts = (repository.findAll().get()); // call
 		log.info("Executing fetching all accounts {}", accounts);
 		return ResponseEntity.ok(accounts);
 	}

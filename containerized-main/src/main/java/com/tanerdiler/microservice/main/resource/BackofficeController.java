@@ -34,32 +34,32 @@ public class BackofficeController
 	{
 
 		log.warn("Fetching all orders...");
-		List<Order> orders = orderService.findAll();
+		List<Order> orders = orderService.findAll(); // call, missing
 		Map<Integer, Account> accounts = new HashMap<>();
 		Map<Integer, Product> products = new HashMap<>();
 
 		log.warn("Fetching accounts of orders...");
 		orders.stream()
-				.filter(o->!accounts.containsKey(o.getAccountId()))
-				.map(o->accountService.findById(o.getAccountId()))
-				.forEach(a->accounts.put(a.getId(), a));
+				.filter(o->!accounts.containsKey(o.getAccountId())) // call
+				.map(o->accountService.findById(o.getAccountId())) // call, missing // call
+				.forEach(a->accounts.put(a.getId(), a)); // call
 
 		log.warn("Fetching products of orders...");
 		orders.stream()
-				.filter(o->!products.containsKey(o.getProductId()))
-				.map(o->productService.findById(o.getProductId()))
-				.forEach(a->products.put(a.getId(), a));
+				.filter(o->!products.containsKey(o.getProductId())) // call
+				.map(o->productService.findById(o.getProductId())) // call, missing  // call
+				.forEach(a->products.put(a.getId(), a)); // call
 
 		log.warn("Generating composite of orders...");
 		List<OrderDTO> orderDTOList = new ArrayList<>();
 		orders.forEach(o->{
-			orderDTOList.add(new OrderDTO(
-					o.getId(),
-					o.getCount(),
-					o.getPrice(),
-					o.getDiscountedPrice(),
-					accounts.get(o.getAccountId()).getFullname(),
-					products.get(o.getProductId()).getName()
+			orderDTOList.add(new OrderDTO( // call
+					o.getId(), // call
+					o.getCount(), // call
+					o.getPrice(), // call 
+					o.getDiscountedPrice(), // call
+					accounts.get(o.getAccountId()).getFullname(), // call  // call
+					products.get(o.getProductId()).getName() // call  // call
 			));
 		});
 

@@ -24,7 +24,7 @@ public class ProductResource {
 	@GetMapping("/{id}")
 	public ResponseEntity<Product> get(@PathVariable("id") Integer id)
 	{
-		final var product = repository.findById(id).get();
+		final var product = repository.findById(id).get(); // call
 		log.info("Product {} detail fetched {}", id, product);
 		return ResponseEntity.ok(product);
 	}
@@ -32,7 +32,7 @@ public class ProductResource {
 	@GetMapping()
 	public ResponseEntity<Collection<Product>> getAll()
 	{
-		final var products = repository.findAll().get();
+		final var products = repository.findAll().get(); // call
 		log.info("Executing fetching all products {}", products);
 		return ResponseEntity.ok(products);
 	}

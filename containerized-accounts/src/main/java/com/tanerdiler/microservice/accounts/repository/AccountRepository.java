@@ -14,10 +14,10 @@ public class AccountRepository
 	private final static Map<Integer, Account> accounts = new HashMap<>();
 
 	static {
-		accounts.put(1, new Account(1, "Taner Diler", "taner.diler@gmail.com"));
-		accounts.put(2, new Account(2, "John Doe", "john.doe@mail.com"));
-		accounts.put(3, new Account(3, "Michael Knight", "michael.knight@mail.com"));
-		accounts.put(4, new Account(4, "Black Hawk", "black.hawk@mail.com"));
+		accounts.put(1, new Account(1, "Taner Diler", "taner.diler@gmail.com")); // call (constructor)
+		accounts.put(2, new Account(2, "John Doe", "john.doe@mail.com")); // call 
+		accounts.put(3, new Account(3, "Michael Knight", "michael.knight@mail.com")); // call 
+		accounts.put(4, new Account(4, "Black Hawk", "black.hawk@mail.com")); // call
 	}
 
 	public Optional<Account> findById(Integer id)
