@@ -16,3 +16,26 @@ To generate service jars:
 // cd to project root dir 
 mvn clean package -DskipTests
 ```
+
+This project uses lombok annotations, to make soot work, disabled the `provided` scope line in `./pom.xml` file. 
+
+Originally:
+````
+<!-- Lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>${lombok.version}</version>
+    <scope>provided</scope>
+</dependency>
+```
+Now: 
+````
+<!-- Lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>${lombok.version}</version>
+    <!--<scope>provided</scope>-->
+</dependency>
+```
