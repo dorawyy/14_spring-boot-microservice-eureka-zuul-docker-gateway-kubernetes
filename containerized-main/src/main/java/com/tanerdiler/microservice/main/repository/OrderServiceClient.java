@@ -13,7 +13,7 @@ import java.util.List;
 public interface OrderServiceClient
 {
 	@GetMapping(value = "/order/api/v1/orders/{orderId}")
-	Order findById(@PathVariable("orderId") Integer orderId);
+	Order findById(@PathVariable("orderId") Integer orderId); // never used
 
 	@GetMapping(value = "/order/api/v1/orders")
 	List<Order> findAll();

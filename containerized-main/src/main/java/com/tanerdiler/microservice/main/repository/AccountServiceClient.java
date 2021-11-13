@@ -16,7 +16,7 @@ public interface AccountServiceClient
 	@GetMapping(value = "/account/api/v1/accounts/{accountId}")
 	Account findById(@PathVariable("accountId") Integer accountId);
 
-	@GetMapping(value = "/account/api/v1/accounts")
+	@GetMapping(value = "/account/api/v1/accounts") // never used 
 	List<Account> findAll();
 
 }

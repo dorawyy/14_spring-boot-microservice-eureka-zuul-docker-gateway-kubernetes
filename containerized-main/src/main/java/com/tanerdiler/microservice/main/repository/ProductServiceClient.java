@@ -15,6 +15,6 @@ public interface ProductServiceClient
 	@GetMapping(value = "/product/api/v1/products/{productId}")
 	Product findById(@PathVariable("productId") Integer orderId);
 
-	@GetMapping(value = "/product/api/v1/products")
+	@GetMapping(value = "/product/api/v1/products") // never used
 	List<Product> findAll();
 }
