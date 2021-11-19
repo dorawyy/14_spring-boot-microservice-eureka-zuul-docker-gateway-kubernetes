@@ -34,20 +34,20 @@ public class BackofficeController
 	{
 
 		log.warn("Fetching all orders...");
-		List<Order> orders = orderService.findAll(); // call, missing
+		List<Order> orders = orderService.findAll(); // call, missing, openfeign
 		Map<Integer, Account> accounts = new HashMap<>();
 		Map<Integer, Product> products = new HashMap<>();
 
 		log.warn("Fetching accounts of orders...");
 		orders.stream()
 				.filter(o->!accounts.containsKey(o.getAccountId())) // call
-				.map(o->accountService.findById(o.getAccountId())) // call, missing // call
+				.map(o->accountService.findById(o.getAccountId())) // call, missing, openfeign // call
 				.forEach(a->accounts.put(a.getId(), a)); // call
 
 		log.warn("Fetching products of orders...");
 		orders.stream()
 				.filter(o->!products.containsKey(o.getProductId())) // call
-				.map(o->productService.findById(o.getProductId())) // call, missing  // call
+				.map(o->productService.findById(o.getProductId())) // call, missing, openfeign  // call
 				.forEach(a->products.put(a.getId(), a)); // call
 
 		log.warn("Generating composite of orders...");
